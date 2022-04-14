@@ -7,5 +7,27 @@
 {# SLIDER #}
 
 {# MAP #}
+<div class="container">
+    <div class="row">
+        {% for voyage in voyages %}
+        <div class="col-12 col-lg-4 mt-5">
+            <div class="card" style="width: 18rem;">
+                {# <small><img src="{{ asset('images/upload/' ~ voyage.image) }}" class="card-img-top" alt="{{ voyage.pays|raw }}"></small> #}
+                <div class="card-body">
+                    <h5 class="card-title">{{ voyage.pays|raw }}</h5>
+                    <p class="card-text">{{ voyage.nomhotel|raw }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ voyage.description|raw }}</li>
+                    <li class="list-group-item">{{ voyage.prix|raw }}&ensp;€</li>
+                </ul>
+                <div class="card-body">
+                    {# <a href="{{ path ('panier', {id: voiture.id}) }}" class="btn bg-primary text-white">Ajouter au panier</a> #}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

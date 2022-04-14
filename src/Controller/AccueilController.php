@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\VoyageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,11 +10,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
     #[Route('/')]
-    #[Route('/accueil', name: 'app_accueil')]
-    public function index(): Response
+    public function locaVoiture()
     {
-        return $this->render('accueil/accueil.html.twig', [
-            
-        ]);
+        return $this->redirectToRoute('app_accueil');
+    }
+
+    #[Route('/accueil', name: 'app_accueil')]
+    public function listeDesVoyages(VoyageRepository $repository): Response
+    {
+        $voyages = $repository->findby(["active" => 1]); {
+            return $this->render('accueil/accueil.html.twig', [
+                'voyages' => $voyages,
+            ]);
+        }
     }
 }
