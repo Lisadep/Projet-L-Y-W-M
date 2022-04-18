@@ -24,20 +24,11 @@ class VoyageCrudController extends AbstractCrudController
             BooleanField::new('active', 'Actif en front')
                 ->setTextAlign('center'),
             ImageField::new('image', 'Photo')
-            // Indiquer le chemin de travail
                 ->setBasePath('images/upload')
-            // Indiquer où va être enregistré l'image qui provient d'un PC
                 ->setUploadDir('public/images/upload')
-            // fichier accepter
                 ->setFormType(FileUploadType::class)
-            // Transformation physique du fichier provenant d'un PC en un fichier unique ds le dossier images/upload
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
-            // Formatage du fichier image à l'écran ds le back-office
                 ->setTemplatePath('admin/admin_imageVoiture.html.twig'),
-            // Il faut créer le dossier admin ds le dossier vue templates
-            // Créer la vue admin_imageVoiture.html.twig qui est vide au départ
-            // Aller chercher dans le bundle easyadmin dossier :
-            // vendor/easycorp/easyadmin-bundle/src/ressources/views/crud/field/image.html.twig
             TextField::new('pays', 'Pays')
                 ->setTextAlign('center'),
             TextField::new('nomhotel', 'Hotel')
