@@ -31,6 +31,9 @@ class Voyage
     #[ORM\Column(type: 'boolean')]
     private $active;
 
+    #[ORM\ManyToOne(targetEntity: Panier::class, inversedBy: 'voyage')]
+    private $panier;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Voyage
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getPanier(): ?Panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?Panier $panier): self
+    {
+        $this->panier = $panier;
 
         return $this;
     }
