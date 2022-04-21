@@ -18,10 +18,18 @@ class AccueilController extends AbstractController
     #[Route('/accueil', name: 'app_accueil')]
     public function listeDesVoyages(VoyageRepository $repository): Response
     {
-        $voyages = $repository->findby(["active" => 1]); {
-            return $this->render('accueil/accueil.html.twig', [
-                'voyages' => $voyages,
-            ]);
-        }
+        $voyages1 = $repository->findby(["active" => 1, "pays" => "Mexique"]);
+
+        $voyages2 = $repository->findby(["active" => 1, "pays" => "Etats-Unis"]);
+            
+        $voyages3 = $repository->findby(["active" => 1, "pays" => "Espagne/Majorque"]);
+
+        return $this->render('accueil/accueil.html.twig', [
+
+            'voyages1' => $voyages1,
+            'voyages2' => $voyages2,
+            'voyages3' => $voyages3,
+
+        ]);
     }
 }
