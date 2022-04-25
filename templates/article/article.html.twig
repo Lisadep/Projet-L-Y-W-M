@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article choisi{% endblock %}
+
+{% block body %}
+
+<main class="main_block">
+        <div id="section" class="p-5">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="img-fluide col-sm-6">
+                        <div class="block-inner">
+                            <div class="slides slide-1" data-slide="1" style=""></div>
+                            <div class="slides slide-2" data-slide="2" style="display: none;"></div>
+                            <div class="slides slide-3" data-slide="3" style="display: none;"></div>
+                            <div class="slides slide-4" data-slide="4" style="display: none;"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <img style="width: 550px;" class="mx-auto d-block" src="{{ asset('images/upload/' ~ idVoyageChoisi.image) }}" alt="image" onclick="current(1)">
+                        </div>
+                        <div class="row align-items-center p-2">
+                            <div class="col-4">
+                                <img src="https://pictures-hotel.h-resa.com/IMG/03TE0xJ4gAJNTEcDj/hD0gAI/3KKKKKK/999KKKK/99K9fKK/99K9XfK/3yKcgXgQ_t.jpg" alt="image" class="img-thumbnail" onclick="current(2)">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://pictures-hotel.h-resa.com/IMG/03TE0xJ4gAJNTEcDj/hD0gAI/3KKKKKK/999KKKK/99K9fKK/99K9XfK/fuRKKg9J_t.jpg" alt="image" class="img-thumbnail" onclick="current(4)">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://pictures-hotel.h-resa.com/IMG/03TE0xJ4gAJNTEcDj/hD0gAI/3KKKKKK/999KKKK/99K9fKK/99K9XfK/fgyny9f3_t.jpg" alt="image" class="img-thumbnail" onclick="current(5)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5 class="font-baloo font-size-20">{{ idVoyageChoisi.nomhotel|raw }}</h5>
+                        <small>{{ idVoyageChoisi.pays|raw }}</small>
+                        <div class="d-flex">
+                            <div class="rating text-warning font-size-12">
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                            </div>
+                            <a href="#" class="px-2 font-rale font-size-14">500 avis</a>
+                        </div>
+                        <hr class=m-0">
+
+                        <!--prix-->
+                        <table>
+                            <tr class="font-rale font-size-14">
+                                <td class="fw-bold">Sans promotion &nbsp;</td>
+                                <td class="font-size-20 text-danger"><strike>{{ idVoyageChoisi.prix|raw }}</strike></td>
+                                <td><small>&nbsp;&nbsp;(-40%)</small></td>
+                            </tr>
+                            <tr class="font-rale font-size-14">
+                                <td class="fw-bold">Prix de l'offre</td>
+                                <td>560.99€</td>
+                            </tr>
+
+                        </table>
+                        <br>
+
+                        <div class="font-baloo font-size-14">
+                            <h3>Description</h3>
+                            <p>
+                                {{ idVoyageChoisi.description|raw }}
+                            </p>
+                        </div>
+
+
+                        <div class="font-size-14">
+
+                        </div>
+
+                        <div class="form-row py-3 font-size-16 font-baloo">
+                            <div class="col-md-12">
+                                <a href="{{ path ('app_panier', {id: idVoyageChoisi.id}) }}"><button type="submit" class="btn-success form-control">Ajouter au panier</button></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

@@ -23,7 +23,7 @@ class ContactController extends AbstractController
         $entityManager->flush();
 
         $form=$this->createForm(ContactType::class);
-        return $this->renderForm('contact/index.html.twig', [
+        return $this->renderForm('contact/contact.html.twig', [
             'controller_name' => 'ContactController',
             'formulaire' => $form
         ]);

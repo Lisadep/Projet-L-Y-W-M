@@ -13,11 +13,25 @@ $(function(){
 
    allPays.css('fill','#FFFFFF');
    Pays.css('fill','#000000');
+
+   PaysId = PaysId.replace('Pays_',' ');
+   
+        let boucle = true;
+   
+         do {
+         
+        PaysId = PaysId.replace('_',' ');
+   
+         if (PaysId.indexOf('_') == -1)
+            
+         boucle = false;
+   
+         }  while(boucle);
     
    $('#infosPays').text(PaysId);
    console.log(PaysId);
 
-  });
+        });
 
    });
 

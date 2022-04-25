@@ -4,13 +4,8 @@
 
 {% block body %}
 
-<title>Luxury Travel</title>
-
-{# SLIDER #}
-
 {# MAP #}
-
-
+<h5 class="cliquez" class="animate__backInLeft">Cliquez sur le continent de votre choix ! <i class="image-clignote bi bi-arrow-down"></i></h5>
 <div class="carteglobale">
   <!-- carte du monde -->
   <div class="CarteDuMondeEtInfos">
@@ -48,16 +43,16 @@
             id="Pays_Europe_Asie_Afrique" transform="translate(0.39425889,21.601953)" />
         </g>
       </svg>
-
-
-
     </div>
+
     <div class="infos">
 
       <span id="infosPays"> </span>
 
     </div>
   </div>
+
+  {# Fin MAP #}
 
   <!-- API google map -->
   <div class="MapGoogle">
@@ -70,6 +65,8 @@
   </div>
 </div>
 
+  <!-- Fin API google map -->
+
   <!-- Cards voyages -->
 
 <main class="container py-3">
@@ -77,14 +74,14 @@
     {% for voyage in voyages1 %}
     <div class="col modal_Pays_Amerique_Du_Sud">
       <div class="card" style="width: 18rem;">
+                <h4 class="card-title p-3">{{ voyage.pays|raw }}</h4>
         <small>
           <img src="{{ asset('images/upload/' ~ voyage.image) }}" class="card-img-top" alt="{{ voyage.pays|raw }}">
         </small>
         <div class="card-body">
-          <h4 class="card-title">{{ voyage.pays|raw }}</h4>
           <h5 class="card-title">{{ voyage.nomhotel|raw }}</h5>
-          <p class="card-text">{{ voyage.prix|raw }}&ensp;€</p>
-          <a href="#" class="btn decouvrir">Découvrir !</a>
+          <h3 class="card-text">{{ voyage.prix|raw }}&ensp;€</h3>
+          <a href="{{ path ('app_article', {id: voyage.id}) }}" class="btn decouvrir">Découvrir !</a>
         </div>
       </div>
     </div>
@@ -97,14 +94,14 @@
     {% for voyage in voyages2 %}
     <div class="col modal_Pays_Amerique_Du_Nord">
       <div class="card" style="width: 18rem;">
+        <h4 class="card-title p-3">{{ voyage.pays|raw }}</h4>
         <small>
           <img src="{{ asset('images/upload/' ~ voyage.image) }}" class="card-img-top" alt="{{ voyage.pays|raw }}">
         </small>
         <div class="card-body">
-          <h4 class="card-title">{{ voyage.pays|raw }}</h4>
           <h5 class="card-title">{{ voyage.nomhotel|raw }}</h5>
-          <p class="card-text">{{ voyage.prix|raw }}&ensp;€</p>
-          <a href="#" class="btn decouvrir">Découvrir !</a>
+          <h3 class="card-text">{{ voyage.prix|raw }}&ensp;€</h3>
+          <a href="{{ path ('app_article', {id: voyage.id}) }}" class="btn decouvrir">Découvrir !</a>
         </div>
       </div>
     </div>
@@ -117,14 +114,14 @@
     {% for voyage in voyages3 %}
     <div class="col modal_Pays_Europe_Asie_Afrique">
       <div class="card" style="width: 18rem;">
+        <h4 class="card-title p-3">{{ voyage.pays|raw }}</h4>
         <small>
           <img src="{{ asset('images/upload/' ~ voyage.image) }}" class="card-img-top" alt="{{ voyage.pays|raw }}">
         </small>
         <div class="card-body">
-          <h4 class="card-title">{{ voyage.pays|raw }}</h4>
           <h5 class="card-title">{{ voyage.nomhotel|raw }}</h5>
-          <p class="card-text">{{ voyage.prix|raw }}&ensp;€</p>
-          <a href="#" class="btn decouvrir">Découvrir !</a>
+          <h3 class="card-text">{{ voyage.prix|raw }}&ensp;€</h3>
+          <a href="{{ path ('app_article', {id: voyage.id}) }}" class="btn decouvrir">Découvrir !</a>
         </div>
       </div>
     </div>

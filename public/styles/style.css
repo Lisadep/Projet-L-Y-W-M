@@ -70,3 +70,33 @@ body {
     border-radius: 4px;
 
 }
+
+.icones {
+    margin-left: 50px;
+}
+
+.logo {
+    width: 9em;
+}
+
+.iconecont {
+margin-left: 15px;
+margin-right: 15px;
+
+}
+
+.image-clignote  {
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+ }
+ @keyframes clignoter {
+   0%   { opacity:1; }
+   40%   {opacity:0; }
+   100% { opacity:1; }
+ }
+
+ .cliquez {
+     margin-left: 3em;
+ }
